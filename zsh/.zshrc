@@ -1,4 +1,4 @@
-####################################
+#e##################################
 ##                                ##
 ##  @@@@@@@@   @@@@@@   @@@  @@@  ##
 ##  @@@@@@@@  @@@@@@@   @@@  @@@  ##
@@ -68,17 +68,25 @@ else
   alias lt='ls -AlT'
 fi
 
-# Navigation
+# Disable focus events (for when not in tmux)
+if [[ $- == *i* ]] && [[ -z "$TMUX" ]]; then
+    printf '\e[?1004l'
+fi
+
+# Navigations and Automappings
 alias h='cd "$HOME"'
 alias hc='cd "$HOME" && clear'
 alias c='clear'
+alias cc='claude'
 
-alias seshfind='cd Desktop/tmuxSessionFinder'
+alias rct='cd Desktop/smallrctapp'
 
 # Quick editors
 alias zedit='nvim ~/.zshrc'
 alias tmuxedit='nvim ~/.tmux.conf'
 alias zource='source ~/.zshrc'
+alias aeroedit='nvim ~/.aerospace.toml'
+alias aeroload='aerospace reload-config'
 
 # Neovim mapping
 alias vi='nvim'
@@ -104,3 +112,10 @@ pdfsplit()   { cd "$HOME/Desktop/invoicesplitter" || return; }
 internal()   { cd "$HOME/Library/CloudStorage/OneDrive-NexioLimited/Documents/Private Quick/Clients/internal" || return; }
 claudedit()  { cd "$HOME/.claude" && nvim CLAUDE.md; }
 clodesearch(){ cd "$HOME/claudecoderesearch" || return; }
+invcode()   { cd "$HOME/Library/CloudStorage/OneDrive-NexioLimited/Documents/Private Quick/Clients/internal/NexusSuite/nsinvoicecoder/" || return; }
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/stephenmcgurrin/.lmstudio/bin"
+# End of LM Studio CLI section
+
