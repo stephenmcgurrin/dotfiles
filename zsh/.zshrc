@@ -87,6 +87,9 @@ alias tmuxedit='nvim ~/.tmux.conf'
 alias zource='source ~/.zshrc'
 alias aeroedit='nvim ~/.aerospace.toml'
 alias aeroload='aerospace reload-config'
+alias ffedit='nvim ~/.config/fastfetch/config.jsonc'
+alias ff='fastfetch'
+
 
 # Neovim mapping
 alias vi='nvim'
@@ -113,9 +116,8 @@ internal()   { cd "$HOME/Library/CloudStorage/OneDrive-NexioLimited/Documents/Pr
 claudedit()  { cd "$HOME/.claude" && nvim CLAUDE.md; }
 clodesearch(){ cd "$HOME/claudecoderesearch" || return; }
 invcode()   { cd "$HOME/Library/CloudStorage/OneDrive-NexioLimited/Documents/Private Quick/Clients/internal/NexusSuite/nsinvoicecoder/" || return; }
-
+itempull() { cd "$HOME/Desktop/Nexio-Link-Products-Tool" || return; streamlit run NexioLinkProductExportTool.py; }
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/stephenmcgurrin/.lmstudio/bin"
 # End of LM Studio CLI section
-
