@@ -15,7 +15,7 @@
 
 ### Core env
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="jonathan" # to set to random theme, set to "random"
+ZSH_THEME="agnoster" # to set to random theme, set to "random"
 # to pull form a SET of random themes, set the above and uncomment the below line:
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" "ys" "simple" "jonathan")
 plugins=(git)
@@ -43,6 +43,11 @@ HISTFILE="$HOME/.zsh_history"
 HISTSIZE=50000
 SAVEHIST=50000
 HIST_STAMPS="yyyy-mm-dd"
+
+# Disable focus events (for when not in tmux)
+if [[ $- == *i* ]] && [[ -z "$TMUX" ]]; then
+    printf '\e[?1004l'
+fi
 
 ### Editor
 export EDITOR='nvim'
@@ -121,3 +126,9 @@ itempull() { cd "$HOME/Desktop/Nexio-Link-Products-Tool" || return; streamlit ru
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/stephenmcgurrin/.lmstudio/bin"
 # End of LM Studio CLI section
+
+
+# Run fastfetch only in interactive shells
+if [[ $- == *i* ]]; then
+    fastfetch
+fi
